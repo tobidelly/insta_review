@@ -26,4 +26,3 @@ export interface Vendor {
     username: string;
     profileImage: string;
     verified: boolean;
-  }
