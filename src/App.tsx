@@ -11,3 +11,5 @@ function App() {
                 <main className="flex-grow">
           <Routes></Routes>
 }
+
+export default App;
