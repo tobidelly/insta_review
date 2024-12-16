@@ -20,6 +20,16 @@ const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, vendor }) =>
     setShowAuth(true);
   };
 
+  const handleInstagramAuth = () => {
+    // In production, this would redirect to Instagram OAuth
+    window.location.href = `instagram://user?username=${vendor.username}`;
+    
+    // Fallback for desktop or if app isn't installed
+    setTimeout(() => {
+      window.location.href = `https://www.instagram.com/${vendor.username}`;
+    }, 25);
+  };
+
   
 
 export default ReviewModal;
