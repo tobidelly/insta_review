@@ -59,6 +59,71 @@ const ReviewModal: React.FC<ReviewModalProps> = ({ isOpen, onClose, vendor }) =>
     );
   }
 
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+      <div className="bg-white rounded-lg max-w-md w-full p-6">
+        <div className="flex justify-between items-center mb-4">
+          <h3 className="text-xl font-semibold">Review {vendor.businessName}</h3>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Rating
+            </label>
+            <div className="flex space-x-2">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button
+                  key={star}
+                  type="button"
+                  onClick={() => setRating(star)}
+                  className="focus:outline-none"
+                >
+                  <Star
+                    className={`h-8 w-8 ${
+                      star <= rating
+                        ? 'text-yellow-400 fill-current'
+                        : 'text-gray-300'
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label
+              htmlFor="review"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Your Review
+            </label>
+            <textarea
+              id="review"
+              rows={4}
+              value={review}
+              onChange={(e) => setReview(e.target.value)}
+              className="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+              placeholder="Share your experience with this vendor..."
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition-colors"
+          >
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
   
 
 export default ReviewModal;
