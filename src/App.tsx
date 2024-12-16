@@ -9,7 +9,11 @@ function App() {
             <div className="flex flex-col min-h-screen">
                 <Navbar />
                 <main className="flex-grow">
-          <Routes></Routes>
+                <Routes></Routes>
+
+                </main>
+                <Footer />
+            </div>
 }
 
 export default App;
