@@ -69,3 +69,17 @@ export const useCreateReview = (
       { rating: number; comment: string; vendorId: string }
     >((data) => reviewAPI.create(data), options);
 };
+
+// Auth Hooks
+export const useLogin = (
+  options?: UseMutationOptions<{ token: string; user: User }, AxiosError, string>
+) => {
+  return useMutation<{ token: string; user: User }, AxiosError, string>(
+    (code) => authAPI.login(code),
+    options
+  );
+};
+
+export const useProfile = (options?: UseQueryOptions<User, AxiosError>) => {
+  return useQuery<User, AxiosError>(['profile'], () => authAPI.getProfile(), options);
+};
