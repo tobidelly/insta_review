@@ -8,7 +8,7 @@ export function useInstagramAuth() {
     setAuthenticating(true);
     
     try {
-      // In production, this would handle the Instagram OAuth flow
+      // In production, this is meant to handle the Instagram OAuth flow
       // Demo's authentication can be simulated
       await new Promise(resolve => setTimeout(resolve, 1500));
       
