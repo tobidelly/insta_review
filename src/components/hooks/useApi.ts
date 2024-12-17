@@ -19,3 +19,12 @@ export const useVendor = (username: string, options?: UseQueryOptions<Vendor, Ax
     options
   );
 };
+
+export const useCreateVendor = (
+  options?: UseMutationOptions<Vendor, AxiosError, Partial<Vendor>>
+) => {
+  return useMutation<Vendor, AxiosError, Partial<Vendor>>(
+    (data) => vendorAPI.create(data),
+    options
+  );
+};
