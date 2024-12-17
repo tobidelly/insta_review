@@ -92,3 +92,5 @@ export const mockVendors: Vendor[] = [
     latestReview: "Premium fitness equipment and great advice. Transformed my home gym!"
   }
 ];
+
+export const mockReviews: Review[] = [
