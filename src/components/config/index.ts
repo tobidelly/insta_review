@@ -1,7 +1,7 @@
 export const config = {
     api: {
       baseURL: import.meta.env.PROD 
-        ? 'https://api.instareview.com' // Replace with your production API URL
+        ? 'https://api.instareview.com' // I'll replace this with production API URL later
         : '/api',
       timeout: 10000,
       withCredentials: true,
