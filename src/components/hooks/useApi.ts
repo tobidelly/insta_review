@@ -54,4 +54,18 @@ export const useVendorReviews = (
         },
       }
     );
-  };
+};
+
+export const useCreateReview = (
+    options?: UseMutationOptions<
+      Review,
+      AxiosError,
+      { rating: number; comment: string; vendorId: string }
+    >
+  ) => {
+    return useMutation<
+      Review,
+      AxiosError,
+      { rating: number; comment: string; vendorId: string }
+    >((data) => reviewAPI.create(data), options);
+};
