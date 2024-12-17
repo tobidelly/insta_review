@@ -94,3 +94,52 @@ export const mockVendors: Vendor[] = [
 ];
 
 export const mockReviews: Review[] = [
+    {
+        id: '1',
+        vendorId: '1',
+        rating: 5,
+        comment: "Amazing experience shopping with Fashionista Boutique! The clothes are exactly as pictured and the quality is outstanding. Shipping was fast and the customer service was excellent. Will definitely be shopping here again!",
+        createdAt: "2024-03-15T10:30:00Z",
+        user: {
+          username: "style_queen",
+          profileImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+          verified: true
+        }
+    },
+    {
+        id: '1',
+        vendorId: '1',
+        rating: 5,
+        comment: "Amazing experience shopping with Fashionista Boutique! The clothes are exactly as pictured and the quality is outstanding. Shipping was fast and the customer service was excellent. Will definitely be shopping here again!",
+        createdAt: "2024-03-15T10:30:00Z",
+        user: {
+          username: "style_queen",
+          profileImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+          verified: true
+        }
+    },
+    {
+        id: '2',
+        vendorId: '1',
+        rating: 4,
+        comment: "Good quality items and reasonable prices. Shipping took a bit longer than expected but the communication was great throughout.",
+        createdAt: "2024-03-14T15:45:00Z",
+        user: {
+          username: "fashion_lover",
+          profileImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+          verified: true
+        }
+    },
+    {
+        id: '2',
+        vendorId: '1',
+        rating: 4,
+        comment: "Good quality items and reasonable prices. Shipping took a bit longer than expected but the communication was great throughout.",
+        createdAt: "2024-03-14T15:45:00Z",
+        user: {
+          username: "fashion_lover",
+          profileImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+          verified: true
+        }
+    }
+];
