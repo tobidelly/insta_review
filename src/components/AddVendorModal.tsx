@@ -11,3 +11,41 @@ const AddVendorModal: React.FC<AddVendorModalProps> = ({ isOpen, onClose }) => {
   const [businessName, setBusinessName] = useState('');
   const [description, setDescription] = useState('');
   const [showAuth, setShowAuth] = useState(false);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setShowAuth(true);
+  };
+
+  const handleModalClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  const handleInstagramAuth = () => {
+    window.location.href = `instagram://user?username=${username}`;
+    setTimeout(() => {
+      window.location.href = `https://www.instagram.com/${username}`;
+    }, 25);
+  };
