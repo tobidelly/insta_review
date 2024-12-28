@@ -3,3 +3,8 @@ import { X, Star, ChevronDown, BadgeCheck } from 'lucide-react';
 import { Vendor, Review } from '../types';
 import { useVendorReviews } from '../hooks/useApi';
 
+interface ReviewListModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    vendor: Vendor;
+  }
