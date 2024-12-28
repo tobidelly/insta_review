@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { X, Instagram } from 'lucide-react';
 
 interface AddVendorModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-  }
+  isOpen: boolean;
+  onClose: () => void;
+}
 
 const AddVendorModal: React.FC<AddVendorModalProps> = ({ isOpen, onClose }) => {
   const [username, setUsername] = useState('');
@@ -49,7 +49,7 @@ const AddVendorModal: React.FC<AddVendorModalProps> = ({ isOpen, onClose }) => {
       window.location.href = `https://www.instagram.com/${username}`;
     }, 25);
   };
-  
+
   if (showAuth) {
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50" onClick={handleModalClick}>
