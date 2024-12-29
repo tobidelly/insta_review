@@ -16,3 +16,25 @@ const envSchema = z.object({
 });
 
 const env = envSchema.parse(process.env);
+
+export const config = {
+  port: env.PORT,
+  nodeEnv: env.NODE_ENV,
+  isDevelopment: env.NODE_ENV === 'development',
+  isProduction: env.NODE_ENV === 'production',
+  database: {
+    url: env.DATABASE_URL,
+  },
+  cors: {
+    origin: env.CORS_ORIGIN,
+  },
+  rateLimit: {
+    windowMs: env.RATE_LIMIT_WINDOW_MS,
+    max: env.RATE_LIMIT_MAX,
+  },
+  instagram: {
+    clientId: env.INSTAGRAM_CLIENT_ID,
+    clientSecret: env.INSTAGRAM_CLIENT_SECRET,
+    redirectUri: env.INSTAGRAM_REDIRECT_URI,
+  },
+};
