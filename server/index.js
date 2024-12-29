@@ -6,8 +6,8 @@ import { apiLimiter } from './middleware/rateLimiter.js';
 import { setupSecurity } from './middleware/security.js';
 import { config } from './config/index.js';
 import { logger } from './utils/logger.js';
-import vendorRoutes from './routes/vendors.js';
-import reviewRoutes from './routes/reviews.js';
+import vendorRoutes from './routes/vendors.ts';
+import reviewRoutes from './routes/reviews.ts';
 
 const prisma = new PrismaClient();
 const app = express();
