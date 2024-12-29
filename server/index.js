@@ -1,0 +1,10 @@
+import express from 'express';
+import cors from 'cors';
+import { PrismaClient } from '@prisma/client';
+import { errorHandler } from './middleware/errorHandler.js';
+import { apiLimiter } from './middleware/rateLimiter.js';
+import { setupSecurity } from './middleware/security.js';
+import { config } from './config/index.js';
+import { logger } from './utils/logger.js';
+import vendorRoutes from './routes/vendors.js';
+import reviewRoutes from './routes/reviews.js';
