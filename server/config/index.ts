@@ -37,4 +37,4 @@ export const config = {
     clientSecret: env.INSTAGRAM_CLIENT_SECRET,
     redirectUri: env.INSTAGRAM_REDIRECT_URI,
   },
-};
+} as const;
