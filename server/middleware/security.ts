@@ -1,6 +1,7 @@
 import helmet from 'helmet';
+import { Express } from 'express';
 
-export function setupSecurity(app) {
+export function setupSecurity(app: Express) {
   // Set security headers
   app.use(helmet());
   
