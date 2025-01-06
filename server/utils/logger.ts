@@ -1,7 +1,7 @@
 import winston from 'winston';
-import { config } from '../config/index.js';
+import { config } from '../config';
 
-export const logger = winston.createLogger({
+const logger = winston.createLogger({
   level: config.isDevelopment ? 'debug' : 'info',
   format: winston.format.combine(
     winston.format.timestamp(),
@@ -32,3 +32,5 @@ if (config.isProduction) {
     })
   );
 }
+
+export { logger };
