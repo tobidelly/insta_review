@@ -1,7 +1,7 @@
 export const config = {
     api: {
       baseURL: import.meta.env.PROD 
-        ? 'https://api.instareview.com' // I'll replace this with production API URL later
+        ? 'https://insta-review.vercel.app/api'
         : '/api',
       timeout: 10000,
       withCredentials: true,
