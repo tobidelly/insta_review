@@ -8,6 +8,7 @@ import { config } from './config';
 import { logger } from './utils/logger';
 import vendorRoutes from './routes/vendors';
 import reviewRoutes from './routes/reviews';
+import authRoutes from './routes/auth';
 
 const prisma = new PrismaClient();
 const app = express();
@@ -45,6 +46,7 @@ app.get('/health', (req, res) => {
   });
 });
 
+app.use('/api/auth', authRoutes);
 // Error handler middleware
 app.use(errorHandler);
 
