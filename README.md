@@ -192,6 +192,6 @@ The application uses three main models:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 👥 Contributing
+## 👥 Owner
 
-Contributions are welcome! Please read our contributing guidelines for details on our code of conduct and the process for submitting pull requests.
+This project is developed by [https://github.com/tobidelly](Delly Oluwatobi) in fulfilment of the ALX Software Engineering Webstack Portfolio Specialization project.
