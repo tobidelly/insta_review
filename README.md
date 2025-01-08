@@ -194,4 +194,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👥 Owner
 
-This project is developed by (https://github.com/tobidelly)[Delly Oluwatobi] in fulfilment of the ALX Software Engineering Webstack Portfolio Specialization project.
+InstaReview is developed by [Delly Oluwatobi](https://github.com/tobidelly) as part of the ALX Software Engineering Webstack Portfolio Specialization project.
