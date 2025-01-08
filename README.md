@@ -56,31 +56,31 @@ InstaReview is a platform that helps shoppers verify and review Instagram-based 
 
 ```
 insta_review/
-├── prisma/                  # Database schema and migrations
+├── prisma/                 # Database schema and migrations
 │   ├── migrations/         # Database migrations
-│   ├── schema.prisma      # Prisma schema
-│   └── seed.ts           # Database seeding
+│   ├── schema.prisma       # Prisma schema
+│   └── seed.ts             # Database seeding
 ├── public/                 # Static assets
 ├── server/                 # Backend API
-│   ├── config/           # Server configuration
-│   ├── middleware/       # Express middleware
-│   ├── routes/          # API routes
-│   ├── services/        # Business logic
-│   └── utils/           # Utility functions
+│   ├── config/             # Server configuration
+│   ├── middleware/         # Express middleware
+│   ├── routes/             # API routes
+│   ├── services/           # Business logic
+│   └── utils/              # Utility functions
 ├── src/                    # Frontend source
-│   ├── components/       # React components
-│   ├── context/         # React context providers
-│   ├── hooks/           # Custom React hooks
-│   ├── pages/           # Page components
-│   ├── services/        # API services
-│   ├── types/           # TypeScript types
-│   └── utils/           # Utility functions
-├── .env.example           # Environment variables template
-├── .eslintrc.js          # ESLint configuration
-├── package.json          # Project dependencies
-├── tailwind.config.js    # Tailwind CSS configuration
-├── tsconfig.json        # TypeScript configuration
-└── vite.config.ts       # Vite configuration
+│   ├── components/         # React components
+│   ├── context/            # React context providers
+│   ├── hooks/              # Custom React hooks
+│   ├── pages/              # Page components
+│   ├── services/           # API services
+│   ├── types/              # TypeScript types
+│   └── utils/              # Utility functions
+├── .env.example            # Environment variables template
+├── .eslintrc.js            # ESLint configuration
+├── package.json            # Project dependencies
+├── tailwind.config.js      # Tailwind CSS configuration
+├── tsconfig.json           # TypeScript configuration
+└── vite.config.ts          # Vite configuration
 ```
 
 ## 🚀 Getting Started
