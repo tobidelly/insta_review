@@ -194,4 +194,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👥 Owner
 
-This project is developed by [https://github.com/tobidelly](Delly Oluwatobi) in fulfilment of the ALX Software Engineering Webstack Portfolio Specialization project.
+This project is developed by (https://github.com/tobidelly)[Delly Oluwatobi] in fulfilment of the ALX Software Engineering Webstack Portfolio Specialization project.
