@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Instagram } from 'lucide-react';
+import { config } from '../config';
 
 interface AddVendorModalProps {
   isOpen: boolean;
@@ -44,10 +45,16 @@ const AddVendorModal: React.FC<AddVendorModalProps> = ({ isOpen, onClose }) => {
   };
 
   const handleInstagramAuth = () => {
-    window.location.href = `instagram://user?username=${username}`;
-    setTimeout(() => {
-      window.location.href = `https://www.instagram.com/${username}`;
-    }, 25);
+    // Generate a random state parameter for security
+    const state = Math.random().toString(36).substring(7);
+    // Store the state in sessionStorage for verification when the user returns
+    sessionStorage.setItem('instagram_auth_state', state);
+    
+    // Construct the Instagram OAuth URL with state parameter
+    const instagramAuthUrl = `https://api.instagram.com/oauth/authorize?client_id=${config.instagram.clientId}&redirect_uri=${encodeURIComponent(config.instagram.redirectUri)}&scope=user_profile,instagram_basic&response_type=code&state=${state}`;
+    
+    // Redirect to Instagram OAuth
+    window.location.href = instagramAuthUrl;
   };
 
   if (showAuth) {
