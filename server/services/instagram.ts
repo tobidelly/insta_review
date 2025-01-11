@@ -1,5 +1,10 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
 
+// Load environment variables from .env file
+dotenv.config();
+
+// Define the structure of the Instagram profile data
 interface InstagramProfile {
   username: string;
   businessName: string;
@@ -7,25 +12,34 @@ interface InstagramProfile {
   bio: string;
 }
 
+// Fetch the Instagram profile using the Graph API
 export async function fetchInstagramProfile(username: string): Promise<InstagramProfile> {
+  const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN; // Access token from environment variables
+
   try {
-    // In production, this would use Instagram's Graph API with proper authentication
-    // For demo purposes, we'll simulate the API response
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Generate a consistent but random-looking profile image
-    const imageId = Buffer.from(username).toString('hex').slice(0, 10);
-    
+    if (!accessToken) {
+      throw new Error('Instagram access token is not defined.');
+    }
+
+    // Make a GET request to the Instagram Graph API
+    const response = await axios.get(`https://graph.instagram.com/${username}`, {
+      params: {
+        fields: 'username,account_type,profile_picture_url,bio',
+        access_token: accessToken,
+      },
+    });
+
+    const data = response.data;
+
+    // Transform the response data into the InstagramProfile structure
     return {
-      username,
-      businessName: username.split('_').map(word => 
-        word.charAt(0).toUpperCase() + word.slice(1)
-      ).join(' '),
-      profileImage: `https://images.unsplash.com/photo-${imageId}?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3`,
-      bio: `${username} is a business on Instagram. This is a simulated profile.`,
+      username: data.username,
+      businessName: data.account_type === 'BUSINESS' ? 'Business Account' : 'Personal Account',
+      profileImage: data.profile_picture_url,
+      bio: data.bio || `${data.username} has not set a bio yet.`,
     };
   } catch (error) {
-    console.error('Error fetching Instagram profile:', error);
+    console.error('Error fetching Instagram profile:', error.message);
     throw new Error('Failed to fetch Instagram profile');
   }
 }
