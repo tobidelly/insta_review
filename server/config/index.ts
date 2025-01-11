@@ -7,12 +7,14 @@ const envSchema = z.object({
   PORT: z.string().default('3000'),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   DATABASE_URL: z.string(),
-  CORS_ORIGIN: z.string().default('http://localhost:5173'),
+  CORS_ORIGIN: z.string().default(process.env.NODE_ENV === 'production' ? 'https://your-production-site.com' : 'http://localhost:5173'),
   RATE_LIMIT_WINDOW_MS: z.string().transform(Number).default('900000'),
   RATE_LIMIT_MAX: z.string().transform(Number).default('100'),
-  INSTAGRAM_CLIENT_ID: z.string().optional(),
-  INSTAGRAM_CLIENT_SECRET: z.string().optional(),
-  INSTAGRAM_REDIRECT_URI: z.string().optional(),
+  INSTAGRAM_APP_NAME: z.string(),
+  INSTAGRAM_CLIENT_ID: z.string(),
+  INSTAGRAM_CLIENT_SECRET: z.string(),
+  INSTAGRAM_ACCESS_TOKEN: z.string(),
+  INSTAGRAM_REDIRECT_URI: z.string(),
 });
 
 const env = envSchema.parse(process.env);
@@ -33,8 +35,10 @@ export const config = {
     max: env.RATE_LIMIT_MAX,
   },
   instagram: {
+    appName: env.INSTAGRAM_APP_NAME,
     clientId: env.INSTAGRAM_CLIENT_ID,
     clientSecret: env.INSTAGRAM_CLIENT_SECRET,
+    accessToken: env.INSTAGRAM_ACCESS_TOKEN,
     redirectUri: env.INSTAGRAM_REDIRECT_URI,
   },
 } as const;
